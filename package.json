@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "emoji-mart": "^5.6.0",
+    "emoji-picker-react": "^4.12.0",
     "firebase": "^10.8.0",
     "lucide-react": "^0.344.0",
     "moment": "^2.30.1",
