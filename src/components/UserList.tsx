@@ -33,25 +33,31 @@ export function UserList({ onSelectUser }: { onSelectUser: (user: UserData) => v
   }, [user]);
 
   return (
-    <div className="bg-white rounded-lg shadow">
-      <div className="p-4 border-b">
-        <h2 className="text-lg font-semibold flex items-center gap-2">
-          <User className="w-5 h-5" />
-          Users
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+      {/* Header */}
+      <div className="p-5 bg-gradient-to-r from-blue-600 to-teal-500 text-white rounded-t-lg shadow-md">
+        <h2 className="text-xl font-semibold flex items-center gap-3">
+          <User className="w-6 h-6" />
+          <span>User List</span>
         </h2>
       </div>
-      <div className="divide-y">
+
+      {/* User List */}
+      <div className="divide-y bg-gray-50">
         {users.map((userData) => (
           <button
             key={userData.uid}
             onClick={() => onSelectUser(userData)}
-            className="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center justify-between transition-colors"
+            className="w-full px-6 py-4 text-left hover:bg-blue-50 transition-all duration-300 ease-in-out flex items-center justify-between rounded-lg"
           >
-            <div>
-              <p className="font-medium">{userData.username}</p>
+            {/* User Info */}
+            <div className="flex flex-col">
+              <p className="text-lg font-medium text-gray-800">{userData.username}</p>
               <p className="text-sm text-gray-500">{userData.email}</p>
             </div>
-            <MessageSquare className="w-5 h-5 text-blue-500" />
+            
+            {/* Message Icon */}
+            <MessageSquare className="w-5 h-5 text-blue-600 hover:text-blue-700 transition-all duration-200 ease-in-out" />
           </button>
         ))}
       </div>

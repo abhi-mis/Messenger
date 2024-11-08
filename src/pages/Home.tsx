@@ -25,42 +25,47 @@ export function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Chat App</h1>
-          <div className="flex items-center gap-4">
-            <span className="text-gray-600">Welcome, {user?.displayName}</span>
+    <div className="min-h-screen bg-gray-100">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-indigo-600 to-blue-500 shadow-md">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-4 flex justify-between items-center text-white">
+          <h1 className="text-3xl font-semibold tracking-tight">Chat App</h1>
+          <div className="flex items-center gap-6">
+            <span className="text-lg font-medium">{`Welcome, ${user?.displayName}`}</span>
             <button
               onClick={handleSignOut}
-              className="inline-flex items-center gap-2 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-red-500 hover:bg-red-600 text-sm font-semibold rounded-lg transition-all"
             >
-              <LogOut className="w-4 h-4" />
-              Sign out
+              <LogOut className="w-5 h-5" />
+              Log Out
             </button>
           </div>
         </div>
       </header>
 
+      {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* User List */}
+          <div className="md:col-span-1 bg-white shadow-lg rounded-lg overflow-hidden">
             <UserList
               onSelectUser={(user) =>
                 setSelectedUser({ uid: user.uid, username: user.username })
               }
             />
           </div>
+
+          {/* Chat Window */}
           <div className="md:col-span-2">
             {selectedUser ? (
-              <div className="bg-white rounded-lg shadow h-[600px]">
+              <div className="bg-white rounded-lg shadow-lg h-[600px]">
                 <ChatWindow
                   recipientId={selectedUser.uid}
                   recipientUsername={selectedUser.username}
                 />
               </div>
             ) : (
-              <div className="bg-white rounded-lg shadow h-[600px] flex items-center justify-center text-gray-500">
+              <div className="bg-white rounded-lg shadow-lg h-[600px] flex items-center justify-center text-gray-500">
                 Select a user to start chatting
               </div>
             )}
