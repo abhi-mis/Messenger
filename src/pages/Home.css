@@ -1,0 +1,59 @@
+/* Home.css */
+
+/* Animated gradient background for the main container */
+.animated-bg {
+    background: white;
+  }
+  
+  /* Animated header background */
+  .animated-header {
+    background: linear-gradient(90deg, #4f46e5, #3b82f6, #9333ea);
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+  
+  /* Keyframe for gradient animation */
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Slide-in animations */
+  .slide-in-left {
+    animation: slideInLeft 1s ease forwards;
+    opacity: 0;
+  }
+  
+  .slide-in-right {
+    animation: slideInRight 1s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  /* Fade-in effect */
+  .fade-in {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Hover effect for interactive elements */
+  button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+  }
+  
